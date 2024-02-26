@@ -1,0 +1,4 @@
+[2024-02-25T14:26:26.232+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: demo.hello scheduled__2022-06-18T00:00:00+00:00 [queued]>
+[2024-02-25T14:26:26.293+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: demo.hello scheduled__2022-06-18T00:00:00+00:00 [queued]>
+[2024-02-25T14:26:26.295+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 1
+[2024-02-25T14:26:26.419+0000] {taskinstance.py:2191} INFO - Executing <Task(BashOperator): hello> on 2022-06-18 00:00:00+00:00

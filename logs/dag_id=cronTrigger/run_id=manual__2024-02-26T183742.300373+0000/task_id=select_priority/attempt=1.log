@@ -1,0 +1,33 @@
+[2024-02-26T18:37:45.842+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: cronTrigger.select_priority manual__2024-02-26T18:37:42.300373+00:00 [queued]>
+[2024-02-26T18:37:45.855+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: cronTrigger.select_priority manual__2024-02-26T18:37:42.300373+00:00 [queued]>
+[2024-02-26T18:37:45.856+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 1
+[2024-02-26T18:37:45.873+0000] {taskinstance.py:2191} INFO - Executing <Task(PostgresOperator): select_priority> on 2024-02-26 18:37:42.300373+00:00
+[2024-02-26T18:37:45.881+0000] {standard_task_runner.py:60} INFO - Started process 219 to run task
+[2024-02-26T18:37:45.886+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'cronTrigger', 'select_priority', 'manual__2024-02-26T18:37:42.300373+00:00', '--job-id', '17', '--raw', '--subdir', 'DAGS_FOLDER/cronTrigger.py', '--cfg-path', '/tmp/tmpkfp8bdky']
+[2024-02-26T18:37:45.891+0000] {standard_task_runner.py:88} INFO - Job 17: Subtask select_priority
+[2024-02-26T18:37:45.958+0000] {task_command.py:423} INFO - Running <TaskInstance: cronTrigger.select_priority manual__2024-02-26T18:37:42.300373+00:00 [running]> on host 81dc7f67df81
+[2024-02-26T18:37:46.105+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='cronTrigger' AIRFLOW_CTX_TASK_ID='select_priority' AIRFLOW_CTX_EXECUTION_DATE='2024-02-26T18:37:42.300373+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-02-26T18:37:42.300373+00:00'
+[2024-02-26T18:37:46.109+0000] {sql.py:276} INFO - Executing: select * from priorities
+[2024-02-26T18:37:46.128+0000] {base.py:83} INFO - Using connection ID 'postgres_local' for task execution.
+[2024-02-26T18:37:46.172+0000] {base.py:83} INFO - Using connection ID 'postgres_local' for task execution.
+[2024-02-26T18:37:46.176+0000] {taskinstance.py:2698} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 433, in _execute_task
+    result = execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/common/sql/operators/sql.py", line 282, in execute
+    output = hook.run(
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/common/sql/hooks/sql.py", line 391, in run
+    with closing(self.get_conn()) as conn:
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/postgres/hooks/postgres.py", line 158, in get_conn
+    self.conn = psycopg2.connect(**conn_args)
+  File "/home/airflow/.local/lib/python3.8/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: connection to server at "0.0.0.0", port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+[2024-02-26T18:37:46.203+0000] {taskinstance.py:1138} INFO - Marking task as FAILED. dag_id=cronTrigger, task_id=select_priority, execution_date=20240226T183742, start_date=20240226T183745, end_date=20240226T183746
+[2024-02-26T18:37:46.235+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 17 for task select_priority (connection to server at "0.0.0.0", port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+; 219)
+[2024-02-26T18:37:46.262+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2024-02-26T18:37:46.313+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check

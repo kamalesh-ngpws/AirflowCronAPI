@@ -1,0 +1,1 @@
+select * from priorities where priority = 'p1' and is_active = true
