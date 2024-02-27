@@ -22,7 +22,7 @@ with DAG(dag_id="cronTriggerP1",  start_date=datetime.now(),  schedule=timedelta
     def airflow(**selectOperator):
         val = selectOperator['ti'].xcom_pull(key='return_value',task_ids="select_priority")
 
-        url = "http://192.168.0.19:8000/cron/"
+        url = Variable.get ("url") #"http://192.168.0.19:8000/cron/"
 
         headers = {
         'accept': 'application/json',
