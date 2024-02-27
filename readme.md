@@ -68,6 +68,8 @@ and configure the connection params
 ```
 ## create a simple API receives a payload and post it back.
 ## configure the URL in Airflow variable
+![image](https://github.com/Alayappan/AirflowCronAPI/assets/38777845/c7207c0e-9ab5-4068-911f-76286d0e33eb)
+
 ## run the DAG
 
 ## Reference
